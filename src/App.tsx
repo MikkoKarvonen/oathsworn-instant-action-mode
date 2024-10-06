@@ -1,16 +1,29 @@
+import { useState } from "react";
 import "./App.css";
+import Chapter from "./components/Chapter";
 
 function App() {
-  const chapters =
-    Array.from({ length: 21 }, (_, i) => `Chapter ${i + 1}`) || [];
+  const [selectedChapter, setSelectedChapter] = useState<number>(0);
 
-  chapters.splice(11, 0, "Chapter 11.5");
+  const chapters = Array.from({ length: 21 }, (_, i) => i + 1) || [];
+
+  chapters.splice(11, 0, 11.5);
 
   return (
     <>
-      {chapters.map((chapter) => (
-        <p>{chapter}</p>
-      ))}
+      <h1>Oathsworn Instant Action Mode</h1>
+      {selectedChapter !== 0 ? (
+        <>
+          <Chapter chapter={selectedChapter} />
+          <button onClick={() => setSelectedChapter(0)}>Back</button>
+        </>
+      ) : (
+        chapters.map((chapter) => (
+          <button onClick={() => setSelectedChapter(chapter)}>
+            Chapter {chapter}
+          </button>
+        ))
+      )}
     </>
   );
 }
