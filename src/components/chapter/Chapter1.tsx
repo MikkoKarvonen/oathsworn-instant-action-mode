@@ -1,10 +1,67 @@
+import useSound from "use-sound";
+
+import audio1 from "../../assets/audio/chapter1/1.wav";
+import audio2 from "../../assets/audio/chapter1/2.wav";
+import audio3 from "../../assets/audio/chapter1/3.wav";
+import audio4 from "../../assets/audio/chapter1/4.wav";
+import audio5 from "../../assets/audio/chapter1/5.wav";
+import audio6 from "../../assets/audio/chapter1/6.wav";
+import audio7 from "../../assets/audio/chapter1/7.wav";
+import audio8 from "../../assets/audio/chapter1/8.wav";
+import audio9 from "../../assets/audio/chapter1/9.wav";
+import { useState } from "react";
+
+const sounds = [
+  audio1,
+  audio2,
+  audio3,
+  audio4,
+  audio5,
+  audio6,
+  audio7,
+  audio8,
+  audio9,
+];
+
 const Chapter = () => {
+  const [currentSoundIndex, setCurrentSoundIndex] = useState<number | null>(
+    null
+  );
+  const [audioPlaying, setAudioPlaying] = useState(false);
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const soundPlayers = sounds.map((sound) => useSound(sound));
+
+  const audioHandler = (index: number) => {
+    if (audioPlaying && currentSoundIndex !== null) {
+      const [, { stop }] = soundPlayers[currentSoundIndex];
+      stop();
+      setAudioPlaying(false);
+    }
+
+    if (index !== currentSoundIndex || !audioPlaying) {
+      const [play] = soundPlayers[index];
+      play();
+      setCurrentSoundIndex(index);
+      setAudioPlaying(true);
+    } else {
+      setCurrentSoundIndex(null);
+    }
+  };
+
+  const AudioButton = ({ index }: { index: number }) => (
+    <button className="btn btn-primary" onClick={() => audioHandler(index)}>
+      {audioPlaying && currentSoundIndex === index ? "◼" : "▶"}
+    </button>
+  );
+
   return (
     <div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" defaultChecked />
         <div className="collapse-title text-xl font-medium">1 </div>
         <div className="collapse-content">
+          <AudioButton index={0} />
           <p>
             Green mud sucks at your boots, every stride a challenge as you
             trudge through the rain. Your hands grip the thick iron cable of the
@@ -40,6 +97,7 @@ const Chapter = () => {
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">3</div>
         <div className="collapse-content">
+          <AudioButton index={1} />
           <p>
             Beyond the portcullis, you encounter a street urchin named, Midge,
             who calls himself the 'Mayor of Bastone. He convinces you to hire
@@ -62,6 +120,7 @@ const Chapter = () => {
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">5</div>
         <div className="collapse-content">
+          <AudioButton index={2} />
           <p>
             Midge escorts you to a small tavern, The Broken Oak, to secure
             lodging. "Pot's Peace!" a burly man behind the bar calls out, "The
@@ -104,6 +163,7 @@ const Chapter = () => {
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">7</div>
         <div className="collapse-content">
+          <AudioButton index={3} />
           <p>
             Your investigation leads you to a ramshackle hut in The Burrows
             where you find the body collector with his hungry family. "You need
@@ -126,6 +186,7 @@ const Chapter = () => {
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">9</div>
         <div className="collapse-content">
+          <AudioButton index={4} />
           <p>
             "Not me you're looking for, I do the job proper," he says. "Jeffit's
             the one you want. He pays them guards to look the other way while he
@@ -156,6 +217,7 @@ const Chapter = () => {
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">11</div>
         <div className="collapse-content">
+          <AudioButton index={5} />
           <p>
             After you dispatch the last guard, you begin to search for signs of
             bodies discarded by the other body collector, Jeffit. During the
@@ -183,6 +245,7 @@ const Chapter = () => {
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">13</div>
         <div className="collapse-content">
+          <AudioButton index={6} />
           <p>
             You know what the creatures are. These are just the pups, and their
             mother is likely nearby. The guard, Dane, joins you as you climb
@@ -202,6 +265,7 @@ const Chapter = () => {
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">15</div>
         <div className="collapse-content">
+          <AudioButton index={7} />
           <p>
             You track the rats to a circular depression in the Deepwood and find
             the woman, torn and bloody before you. The rotten stench of death
@@ -227,6 +291,7 @@ const Chapter = () => {
         <div className="collapse-title text-xl font-medium">17</div>
         <div className="collapse-content">
           <h3 className="text-1xl font-bold">Epilogue</h3>
+          <AudioButton index={8} />
           <p>
             After the battle, you return to the relative comfort of The Broken
             Oak with the Broodmother's head as a trophy. Lord Davenish, the Lord
