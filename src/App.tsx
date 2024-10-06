@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import Chapter from "./components/Chapter";
 
 function App() {
@@ -10,21 +9,32 @@ function App() {
   chapters.splice(11, 0, 11.5);
 
   return (
-    <>
-      <h1>Oathsworn Instant Action Mode</h1>
-      {selectedChapter !== 0 ? (
-        <>
-          <Chapter chapter={selectedChapter} />
-          <button onClick={() => setSelectedChapter(0)}>Back</button>
-        </>
-      ) : (
-        chapters.map((chapter) => (
-          <button onClick={() => setSelectedChapter(chapter)}>
-            Chapter {chapter}
-          </button>
-        ))
-      )}
-    </>
+    <div className="flex justify-center">
+      <article className="prose">
+        <h1 className="text-4xl font-bold">Oathsworn Instant Action Mode</h1>
+        {selectedChapter !== 0 ? (
+          <>
+            <Chapter chapter={selectedChapter} />
+            <button
+              onClick={() => setSelectedChapter(0)}
+              className="btn btn-neutral"
+            >
+              Back
+            </button>
+          </>
+        ) : (
+          chapters.map((chapter, index) => (
+            <button
+              key={index}
+              onClick={() => setSelectedChapter(chapter)}
+              className="btn btn-neutral"
+            >
+              Chapter {chapter}
+            </button>
+          ))
+        )}
+      </article>
+    </div>
   );
 }
 

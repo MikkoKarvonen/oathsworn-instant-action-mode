@@ -13,7 +13,7 @@ const Chapter = ({ chapter }: { chapter: number }) => {
 
   return (
     <>
-      <h2>Chapter {chapter}</h2>
+      <h2 className="text-2xl font-bold">Chapter {chapter}</h2>
       {SelectedChapter ? <SelectedChapter /> : <p>Chapter not found</p>}
     </>
   );
