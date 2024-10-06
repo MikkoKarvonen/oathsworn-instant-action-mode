@@ -1,3 +1,4 @@
+import { useState } from "react";
 import useSound from "use-sound";
 
 import audio1 from "../../assets/audio/chapter1/1.mp3";
@@ -9,7 +10,8 @@ import audio6 from "../../assets/audio/chapter1/6.mp3";
 import audio7 from "../../assets/audio/chapter1/7.mp3";
 import audio8 from "../../assets/audio/chapter1/8.mp3";
 import audio9 from "../../assets/audio/chapter1/9.mp3";
-import { useState } from "react";
+
+import map from "../../assets/images/1.png";
 
 const sounds = [
   audio1,
@@ -281,9 +283,15 @@ const Chapter = () => {
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">16</div>
         <div className="collapse-content">
-          <p>IF YOU HAVE THE MYSTERY CHEST, OPEN MYSTERY BOX 1.</p>
-          <p>IF YOU DO NOT HAVE THE MYSTERY CHEST, OPEN MYSTERY ENVELOPE 1.</p>
-          <p>PROCEED TO THE CHAPTER 1 ENCOUNTER IN THE ENCOUNTER BOOK.</p>
+          <p>
+            IF YOU HAVE THE MYSTERY CHEST, OPEN MYSTERY BOX 1 AND TRIANGLE(△).
+          </p>
+          <p>
+            IF YOU DO NOT HAVE THE MYSTERY CHEST, OPEN MYSTERY ENVELOPE 1 AND
+            TRIANGLE(△).
+          </p>
+          {/* map as image */}
+          <img src={map} />
         </div>
       </div>
       <div className="collapse collapse-plus bg-base-200">
