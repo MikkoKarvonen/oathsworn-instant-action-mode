@@ -1,14 +1,14 @@
 import useSound from "use-sound";
 
-import audio1 from "../../assets/audio/chapter1/1.wav";
-import audio2 from "../../assets/audio/chapter1/2.wav";
-import audio3 from "../../assets/audio/chapter1/3.wav";
-import audio4 from "../../assets/audio/chapter1/4.wav";
-import audio5 from "../../assets/audio/chapter1/5.wav";
-import audio6 from "../../assets/audio/chapter1/6.wav";
-import audio7 from "../../assets/audio/chapter1/7.wav";
-import audio8 from "../../assets/audio/chapter1/8.wav";
-import audio9 from "../../assets/audio/chapter1/9.wav";
+import audio1 from "../../assets/audio/chapter1/1.mp3";
+import audio2 from "../../assets/audio/chapter1/2.mp3";
+import audio3 from "../../assets/audio/chapter1/3.mp3";
+import audio4 from "../../assets/audio/chapter1/4.mp3";
+import audio5 from "../../assets/audio/chapter1/5.mp3";
+import audio6 from "../../assets/audio/chapter1/6.mp3";
+import audio7 from "../../assets/audio/chapter1/7.mp3";
+import audio8 from "../../assets/audio/chapter1/8.mp3";
+import audio9 from "../../assets/audio/chapter1/9.mp3";
 import { useState } from "react";
 
 const sounds = [
