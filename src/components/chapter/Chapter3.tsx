@@ -199,8 +199,15 @@ const Chapter = () => {
           />
           <p>
             "This is my street! Please, we need to help them!" your guide,
-            Midge, shouts as he points to a half-fallen building. CHOOSE EITHER:
+            Midge, shouts as he points to a half-fallen building.
           </p>
+        </div>
+      </div>
+      <div className="collapse collapse-plus bg-base-200">
+        <input type="radio" name="my-accordion-3" />
+        <div className="collapse-title text-xl font-medium">9</div>
+        <div className="collapse-content">
+          <p>CHOOSE EITHER:</p>
           <p>A. Help them.</p>
           <p>
             ALL OATHSWORN GAIN A REDRAW TOKEN, BUT EACH OATHSWORN PERFORMS A
@@ -208,6 +215,20 @@ const Chapter = () => {
           </p>
           <p>B. Continue.</p>
           <p>You continue without helping.</p>
+        </div>
+      </div>
+      <div className="collapse collapse-plus bg-base-200">
+        <input type="radio" name="my-accordion-3" />
+        <div className="collapse-title text-xl font-medium">9</div>
+        <div className="collapse-content">
+          <AudioButton
+            index={4}
+            audioPlaying={audioPlaying}
+            currentSoundIndex={currentSoundIndex}
+            soundPlayers={soundPlayers}
+            setAudioPlaying={setAudioPlaying}
+            setCurrentSoundIndex={setCurrentSoundIndex}
+          />
           <p>
             You continue running toward the main gate. It is barred shut and
             will take time to open. As you and the guards scramble to lift the
