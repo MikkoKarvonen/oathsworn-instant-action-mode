@@ -1,15 +1,16 @@
 import { useState } from "react";
 import useSound from "use-sound";
 
-import audio1 from "../../assets/audio/chapter1/1.mp3";
-import audio2 from "../../assets/audio/chapter1/2.mp3";
-import audio3 from "../../assets/audio/chapter1/3.mp3";
-import audio4 from "../../assets/audio/chapter1/4.mp3";
-import audio5 from "../../assets/audio/chapter1/5.mp3";
-import audio6 from "../../assets/audio/chapter1/6.mp3";
-import audio7 from "../../assets/audio/chapter1/7.mp3";
-import audio8 from "../../assets/audio/chapter1/8.mp3";
-import audio9 from "../../assets/audio/chapter1/9.mp3";
+import audio1 from "../../assets/audio/chapter9/1.mp3";
+import audio2 from "../../assets/audio/chapter9/2.mp3";
+import audio3 from "../../assets/audio/chapter9/3.mp3";
+import audio4 from "../../assets/audio/chapter9/4.mp3";
+import audio5 from "../../assets/audio/chapter9/5.mp3";
+import audio6 from "../../assets/audio/chapter9/6.mp3";
+import audio7 from "../../assets/audio/chapter9/7.mp3";
+import audio8 from "../../assets/audio/chapter9/8.mp3";
+import audio9 from "../../assets/audio/chapter9/9.mp3";
+import audio10 from "../../assets/audio/chapter9/10.mp3";
 
 import map from "../../assets/images/1.png";
 import { AudioButton } from "../../assets/audioHandler";
@@ -24,6 +25,7 @@ const sounds = [
   audio7,
   audio8,
   audio9,
+  audio10,
 ];
 
 const Chapter = () => {
@@ -331,7 +333,7 @@ const Chapter = () => {
         <div className="collapse-title text-xl font-medium">17</div>
         <div className="collapse-content">
           <AudioButton
-            index={7}
+            index={8}
             audioPlaying={audioPlaying}
             currentSoundIndex={currentSoundIndex}
             soundPlayers={soundPlayers}
@@ -354,7 +356,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">20</div>
+        <div className="collapse-title text-xl font-medium">18</div>
         <div className="collapse-content">
           <p>
             PERFORM A SPOT CHECK (DIFFICULTY 5). IF YOU SUCCEED, MARK THE
@@ -369,11 +371,11 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">21</div>
+        <div className="collapse-title text-xl font-medium">19</div>
         <div className="collapse-content">
           <h3 className="text-1xl font-bold">Epilogue</h3>
           <AudioButton
-            index={8}
+            index={9}
             audioPlaying={audioPlaying}
             currentSoundIndex={currentSoundIndex}
             soundPlayers={soundPlayers}
@@ -391,7 +393,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">22</div>
+        <div className="collapse-title text-xl font-medium">20</div>
         <div className="collapse-content">
           <p>GAIN ALLY CARD 22 (GOLEM).</p>
           <p>YOU GAIN 32 IRON.</p>
