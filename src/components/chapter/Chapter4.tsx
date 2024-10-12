@@ -1,15 +1,15 @@
 import { useState } from "react";
 import useSound from "use-sound";
 
-import audio1 from "../../assets/audio/chapter1/1.mp3";
-import audio2 from "../../assets/audio/chapter1/2.mp3";
-import audio3 from "../../assets/audio/chapter1/3.mp3";
-import audio4 from "../../assets/audio/chapter1/4.mp3";
-import audio5 from "../../assets/audio/chapter1/5.mp3";
-import audio6 from "../../assets/audio/chapter1/6.mp3";
-import audio7 from "../../assets/audio/chapter1/7.mp3";
-import audio8 from "../../assets/audio/chapter1/8.mp3";
-import audio9 from "../../assets/audio/chapter1/9.mp3";
+import audio1 from "../../assets/audio/chapter4/1.mp3";
+import audio2 from "../../assets/audio/chapter4/2.mp3";
+import audio3 from "../../assets/audio/chapter4/3.mp3";
+import audio4 from "../../assets/audio/chapter4/4.mp3";
+import audio5 from "../../assets/audio/chapter4/5.mp3";
+import audio6 from "../../assets/audio/chapter4/6.mp3";
+import audio7 from "../../assets/audio/chapter4/7.mp3";
+import audio8 from "../../assets/audio/chapter4/8.mp3";
+import audio9 from "../../assets/audio/chapter4/9.mp3";
 
 import map from "../../assets/images/1.png";
 import { AudioButton } from "../../assets/audioHandler";
@@ -111,6 +111,14 @@ const Chapter = () => {
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">5</div>
         <div className="collapse-content">
+          <AudioButton
+            index={2}
+            audioPlaying={audioPlaying}
+            currentSoundIndex={currentSoundIndex}
+            soundPlayers={soundPlayers}
+            setAudioPlaying={setAudioPlaying}
+            setCurrentSoundIndex={setCurrentSoundIndex}
+          />
           <p>
             As a dim light breaks through the thick green canopy, your group has
             grown smaller. There is a solemn silence as you break camp and
@@ -124,6 +132,12 @@ const Chapter = () => {
             you see a pink cyst, freshly disgorged. You know all too well what
             inhaling that black cloud means. This man will not survive.
           </p>
+        </div>
+      </div>
+      <div className="collapse collapse-plus bg-base-200">
+        <input type="radio" name="my-accordion-3" />
+        <div className="collapse-title text-xl font-medium">6</div>
+        <div className="collapse-content">
           <p>CHOOSE EITHER:</p>
           <p>A. Kill him now.</p>
           <p>ALL OATHSWORN GAIN A DEFENSE TOKEN.</p>
@@ -133,7 +147,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">6</div>
+        <div className="collapse-title text-xl font-medium">7</div>
         <div className="collapse-content">
           <AudioButton
             index={3}
@@ -154,7 +168,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">7</div>
+        <div className="collapse-title text-xl font-medium">8</div>
         <div className="collapse-content">
           <p>
             ALL OATHSWORN PERFORM A SURVIVAL CHECK (DIFFICULTY 3). ALL THAT
@@ -182,6 +196,12 @@ const Chapter = () => {
             take the remaining food from your backpacks. It will not be enough
             for everyone.
           </p>
+        </div>
+      </div>
+      <div className="collapse collapse-plus bg-base-200">
+        <input type="radio" name="my-accordion-3" />
+        <div className="collapse-title text-xl font-medium">10</div>
+        <div className="collapse-content">
           <p>CHOOSE EITHER:</p>
           <p>A. Take most for yourself.</p>
           <p>ALL OATHSWORN LOSE A RANDOM COMBAT TOKEN.</p>
@@ -291,7 +311,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">20</div>
+        <div className="collapse-title text-xl font-medium">16</div>
         <div className="collapse-content">
           <p>IF YOU HAVE THE MYSTERY CHEST, OPEN MYSTERY BOX 4.</p>
           <p>IF YOU DO NOT HAVE THE MYSTERY CHEST, OPEN MYSTERY ENVELOPE 4.</p>
@@ -300,7 +320,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">21</div>
+        <div className="collapse-title text-xl font-medium">17</div>
         <div className="collapse-content">
           <h3 className="text-1xl font-bold">Epilogue</h3>
           <AudioButton
@@ -337,7 +357,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">22</div>
+        <div className="collapse-title text-xl font-medium">18</div>
         <div className="collapse-content">
           <p>GAIN 10 IRON.</p>
           <p>

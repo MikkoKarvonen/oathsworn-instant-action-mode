@@ -1,15 +1,17 @@
 import { useState } from "react";
 import useSound from "use-sound";
 
-import audio1 from "../../assets/audio/chapter1/1.mp3";
-import audio2 from "../../assets/audio/chapter1/2.mp3";
-import audio3 from "../../assets/audio/chapter1/3.mp3";
-import audio4 from "../../assets/audio/chapter1/4.mp3";
-import audio5 from "../../assets/audio/chapter1/5.mp3";
-import audio6 from "../../assets/audio/chapter1/6.mp3";
-import audio7 from "../../assets/audio/chapter1/7.mp3";
-import audio8 from "../../assets/audio/chapter1/8.mp3";
-import audio9 from "../../assets/audio/chapter1/9.mp3";
+import audio1 from "../../assets/audio/chapter5/1.mp3";
+import audio2 from "../../assets/audio/chapter5/2.mp3";
+import audio3 from "../../assets/audio/chapter5/3.mp3";
+import audio4 from "../../assets/audio/chapter5/4.mp3";
+import audio5 from "../../assets/audio/chapter5/5.mp3";
+import audio6 from "../../assets/audio/chapter5/6.mp3";
+import audio7 from "../../assets/audio/chapter5/7.mp3";
+import audio8 from "../../assets/audio/chapter5/8.mp3";
+import audio9 from "../../assets/audio/chapter5/9.mp3";
+import audio10 from "../../assets/audio/chapter5/10.mp3";
+import audio11 from "../../assets/audio/chapter5/11.mp3";
 
 import map from "../../assets/images/1.png";
 import { AudioButton } from "../../assets/audioHandler";
@@ -24,6 +26,8 @@ const sounds = [
   audio7,
   audio8,
   audio9,
+  audio10,
+  audio11,
 ];
 
 const Chapter = () => {
@@ -338,7 +342,7 @@ const Chapter = () => {
         <div className="collapse-title text-xl font-medium">17</div>
         <div className="collapse-content">
           <AudioButton
-            index={7}
+            index={8}
             audioPlaying={audioPlaying}
             currentSoundIndex={currentSoundIndex}
             soundPlayers={soundPlayers}
@@ -364,7 +368,7 @@ const Chapter = () => {
         <div className="collapse-title text-xl font-medium">19</div>
         <div className="collapse-content">
           <AudioButton
-            index={7}
+            index={9}
             audioPlaying={audioPlaying}
             currentSoundIndex={currentSoundIndex}
             soundPlayers={soundPlayers}
@@ -396,7 +400,7 @@ const Chapter = () => {
         <div className="collapse-content">
           <h3 className="text-1xl font-bold">Epilogue</h3>
           <AudioButton
-            index={8}
+            index={10}
             audioPlaying={audioPlaying}
             currentSoundIndex={currentSoundIndex}
             soundPlayers={soundPlayers}
