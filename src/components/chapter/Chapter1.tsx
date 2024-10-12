@@ -152,12 +152,6 @@ const Chapter = () => {
             PERFORM A REASONING CHECK (DIFFICULTY 4). IF YOU SUCCEED, ALL
             OATHSWORN GAIN A REDRAW TOKEN FOR QUICKLY FOLLOWING THE LEADS.
           </p>
-          <p>FOR EXAMPLE, SPEND 1 TO REDUCE THE DIFFICULTY BY 1.</p>
-          <p>
-            IF YOU SUCCEED, ALL OATHSWORN GAIN A +2 ANIMUS TOKEN FOR OBTAINING
-            GOOD INFORMATION FROM THE BODY COLLECTOR AND FINDING YOUR TARGET
-            QUICKLY.
-          </p>
         </div>
       </div>
       <div className="collapse collapse-plus bg-base-200">
@@ -187,6 +181,12 @@ const Chapter = () => {
             PERFORM A BARTERING CHECK (DIFFICULTY 7). BEFORE YOU DRAW, YOU CAN
             SPEND ANY AMOUNT OF IRON TO REDUCE THE DIFFICULTY OF THIS CHECK BY
             THE SAME AMOUNT.
+          </p>
+          <p>FOR EXAMPLE, SPEND 1 TO REDUCE THE DIFFICULTY BY 1.</p>
+          <p>
+            IF YOU SUCCEED, ALL OATHSWORN GAIN A +2 ANIMUS TOKEN FOR OBTAINING
+            GOOD INFORMATION FROM THE BODY COLLECTOR AND FINDING YOUR TARGET
+            QUICKLY.
           </p>
         </div>
       </div>

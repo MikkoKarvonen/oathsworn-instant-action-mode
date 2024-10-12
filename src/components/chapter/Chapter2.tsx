@@ -128,8 +128,8 @@ const Chapter = () => {
             circles, which some have taken to calling, 'The Eyes. Armed with
             this information, you turn to leave but immediately pause. Looking
             at you, through one of the palace windows is Samil, dead comrade.
-            You rush to the window, but find your he is gone. Not knowing what
-            to make of it, you get back to the task at hand and head to the
+            You rush to the window, but find he is gone. Not knowing what to
+            make of it, you get back to the task at hand and head to the
             Banksmith for supplies.
           </p>
         </div>
