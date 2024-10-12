@@ -1,30 +1,19 @@
 import { useState } from "react";
 import useSound from "use-sound";
 
-import audio1 from "../../assets/audio/chapter1/1.mp3";
-import audio2 from "../../assets/audio/chapter1/2.mp3";
-import audio3 from "../../assets/audio/chapter1/3.mp3";
-import audio4 from "../../assets/audio/chapter1/4.mp3";
-import audio5 from "../../assets/audio/chapter1/5.mp3";
-import audio6 from "../../assets/audio/chapter1/6.mp3";
-import audio7 from "../../assets/audio/chapter1/7.mp3";
-import audio8 from "../../assets/audio/chapter1/8.mp3";
-import audio9 from "../../assets/audio/chapter1/9.mp3";
+import audio1 from "../../assets/audio/chapter11/1.mp3";
+import audio2 from "../../assets/audio/chapter11/2.mp3";
+import audio3 from "../../assets/audio/chapter11/3.mp3";
+import audio4 from "../../assets/audio/chapter11/4.mp3";
+import audio5 from "../../assets/audio/chapter11/5.mp3";
+import audio6 from "../../assets/audio/chapter11/6.mp3";
+import audio7 from "../../assets/audio/chapter11/7.mp3";
+import audio8 from "../../assets/audio/chapter11/8.mp3";
 
 import map from "../../assets/images/1.png";
 import { AudioButton } from "../../assets/audioHandler";
 
-const sounds = [
-  audio1,
-  audio2,
-  audio3,
-  audio4,
-  audio5,
-  audio6,
-  audio7,
-  audio8,
-  audio9,
-];
+const sounds = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8];
 
 const Chapter = () => {
   const [currentSoundIndex, setCurrentSoundIndex] = useState<number | null>(
@@ -39,7 +28,7 @@ const Chapter = () => {
     <div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" defaultChecked />
-        <div className="collapse-title text-xl font-medium">1 </div>
+        <div className="collapse-title text-xl font-medium">1</div>
         <div className="collapse-content">
           <AudioButton
             index={0}
@@ -322,7 +311,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">20</div>
+        <div className="collapse-title text-xl font-medium">14</div>
         <div className="collapse-content">
           <p>ARCHIVE ALLY CARD 23 (GUIDE).</p>
           <p>
@@ -339,11 +328,11 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">21</div>
+        <div className="collapse-title text-xl font-medium">15</div>
         <div className="collapse-content">
           <h3 className="text-1xl font-bold">Epilogue</h3>
           <AudioButton
-            index={8}
+            index={7}
             audioPlaying={audioPlaying}
             currentSoundIndex={currentSoundIndex}
             soundPlayers={soundPlayers}
@@ -361,7 +350,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">22</div>
+        <div className="collapse-title text-xl font-medium">16</div>
         <div className="collapse-content">
           <p>YOU GAIN 24 IRON.</p>
           <p>

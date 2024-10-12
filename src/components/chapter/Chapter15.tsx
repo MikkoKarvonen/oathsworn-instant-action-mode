@@ -1,30 +1,19 @@
 import { useState } from "react";
 import useSound from "use-sound";
 
-import audio1 from "../../assets/audio/chapter1/1.mp3";
-import audio2 from "../../assets/audio/chapter1/2.mp3";
-import audio3 from "../../assets/audio/chapter1/3.mp3";
-import audio4 from "../../assets/audio/chapter1/4.mp3";
-import audio5 from "../../assets/audio/chapter1/5.mp3";
-import audio6 from "../../assets/audio/chapter1/6.mp3";
-import audio7 from "../../assets/audio/chapter1/7.mp3";
-import audio8 from "../../assets/audio/chapter1/8.mp3";
-import audio9 from "../../assets/audio/chapter1/9.mp3";
+import audio1 from "../../assets/audio/chapter15/1.mp3";
+import audio2 from "../../assets/audio/chapter15/2.mp3";
+import audio3 from "../../assets/audio/chapter15/3.mp3";
+import audio4 from "../../assets/audio/chapter15/4.mp3";
+import audio5 from "../../assets/audio/chapter15/5.mp3";
+import audio6 from "../../assets/audio/chapter15/6.mp3";
+import audio7 from "../../assets/audio/chapter15/7.mp3";
+import audio8 from "../../assets/audio/chapter15/8.mp3";
 
 import map from "../../assets/images/1.png";
 import { AudioButton } from "../../assets/audioHandler";
 
-const sounds = [
-  audio1,
-  audio2,
-  audio3,
-  audio4,
-  audio5,
-  audio6,
-  audio7,
-  audio8,
-  audio9,
-];
+const sounds = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8];
 
 const Chapter = () => {
   const [currentSoundIndex, setCurrentSoundIndex] = useState<number | null>(
@@ -94,7 +83,7 @@ const Chapter = () => {
             curiosity, you watch as it tears through the Faceless until only a
             young woman remains. She had been denied a weapon, yet she stands
             defiantly against the creature. This is no way for someone to die.
-            In the moment, make a choice and jump over the edge. you
+            In the moment, make a choice and jump over the edge.
           </p>
         </div>
       </div>
@@ -312,7 +301,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">20</div>
+        <div className="collapse-title text-xl font-medium">14</div>
         <div className="collapse-content">
           <p>IF YOU HAVE THE MYSTERY CHEST, OPEN MYSTERY BOX 15.</p>
           <p>IF YOU DO NOT HAVE THE MYSTERY CHEST, OPEN MYSTERY ENVELOPE 15.</p>
@@ -321,11 +310,11 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">21</div>
+        <div className="collapse-title text-xl font-medium">15</div>
         <div className="collapse-content">
           <h3 className="text-1xl font-bold">Epilogue</h3>
           <AudioButton
-            index={8}
+            index={7}
             audioPlaying={audioPlaying}
             currentSoundIndex={currentSoundIndex}
             soundPlayers={soundPlayers}
@@ -342,7 +331,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">22</div>
+        <div className="collapse-title text-xl font-medium">16</div>
         <div className="collapse-content">
           <p>YOU GAIN 32 IRON.</p>
           <p>

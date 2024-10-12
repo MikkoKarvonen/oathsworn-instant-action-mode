@@ -1,15 +1,18 @@
 import { useState } from "react";
 import useSound from "use-sound";
 
-import audio1 from "../../assets/audio/chapter1/1.mp3";
-import audio2 from "../../assets/audio/chapter1/2.mp3";
-import audio3 from "../../assets/audio/chapter1/3.mp3";
-import audio4 from "../../assets/audio/chapter1/4.mp3";
-import audio5 from "../../assets/audio/chapter1/5.mp3";
-import audio6 from "../../assets/audio/chapter1/6.mp3";
-import audio7 from "../../assets/audio/chapter1/7.mp3";
-import audio8 from "../../assets/audio/chapter1/8.mp3";
-import audio9 from "../../assets/audio/chapter1/9.mp3";
+import audio1 from "../../assets/audio/chapter14/1.mp3";
+import audio2 from "../../assets/audio/chapter14/2.mp3";
+import audio3 from "../../assets/audio/chapter14/3.mp3";
+import audio4 from "../../assets/audio/chapter14/4.mp3";
+import audio5 from "../../assets/audio/chapter14/5.mp3";
+import audio6 from "../../assets/audio/chapter14/6.mp3";
+import audio7 from "../../assets/audio/chapter14/7.mp3";
+import audio8 from "../../assets/audio/chapter14/8.mp3";
+import audio9 from "../../assets/audio/chapter14/9.mp3";
+import audio10 from "../../assets/audio/chapter14/10.mp3";
+import audio11 from "../../assets/audio/chapter14/11.mp3";
+import audio12 from "../../assets/audio/chapter14/12.mp3";
 
 import map from "../../assets/images/1.png";
 import { AudioButton } from "../../assets/audioHandler";
@@ -24,6 +27,9 @@ const sounds = [
   audio7,
   audio8,
   audio9,
+  audio10,
+  audio11,
+  audio12,
 ];
 
 const Chapter = () => {
@@ -99,7 +105,27 @@ const Chapter = () => {
             soon, and now your best shot is Thrace, a city of masks and slaves
             controlled by five powerful families.
           </p>
+        </div>
+      </div>
+      <div className="collapse collapse-plus bg-base-200">
+        <input type="radio" name="my-accordion-3" />
+        <div className="collapse-title text-xl font-medium">4</div>
+        <div className="collapse-content">
           <p>YOU MAY START A TRADE WITH THE BANKSMITH AND APOTHECARY.</p>
+        </div>
+      </div>
+      <div className="collapse collapse-plus bg-base-200">
+        <input type="radio" name="my-accordion-3" />
+        <div className="collapse-title text-xl font-medium">5</div>
+        <div className="collapse-content">
+          <AudioButton
+            index={2}
+            audioPlaying={audioPlaying}
+            currentSoundIndex={currentSoundIndex}
+            soundPlayers={soundPlayers}
+            setAudioPlaying={setAudioPlaying}
+            setCurrentSoundIndex={setCurrentSoundIndex}
+          />
           <p>
             Gathering your gear and checking your packs you dive back into the
             Deepwood. You start your travel in a needle-like rain, which only
@@ -110,7 +136,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">4</div>
+        <div className="collapse-title text-xl font-medium">6</div>
         <div className="collapse-content">
           <p>
             EACH OATHSWORN PERFORM A SURVIVAL CHECK (DIFFICULTY 6). ALL THAT
@@ -120,10 +146,10 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">5</div>
+        <div className="collapse-title text-xl font-medium">7</div>
         <div className="collapse-content">
           <AudioButton
-            index={2}
+            index={3}
             audioPlaying={audioPlaying}
             currentSoundIndex={currentSoundIndex}
             soundPlayers={soundPlayers}
@@ -150,7 +176,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">6</div>
+        <div className="collapse-title text-xl font-medium">8</div>
         <div className="collapse-content">
           <p>
             PERFORM A SEARCH CHECK (DIFFICULTY 4). IF YOU SUCCEED, ALL OATHSWORN
@@ -160,10 +186,10 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">7</div>
+        <div className="collapse-title text-xl font-medium">9</div>
         <div className="collapse-content">
           <AudioButton
-            index={3}
+            index={4}
             audioPlaying={audioPlaying}
             currentSoundIndex={currentSoundIndex}
             soundPlayers={soundPlayers}
@@ -184,7 +210,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">8</div>
+        <div className="collapse-title text-xl font-medium">10</div>
         <div className="collapse-content">
           <p>
             PERFORM A SEARCH CHECK (DIFFICULTY 5). IF YOU SUCCEED, ALL OATHSWORN
@@ -194,10 +220,10 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">9</div>
+        <div className="collapse-title text-xl font-medium">11</div>
         <div className="collapse-content">
           <AudioButton
-            index={4}
+            index={5}
             audioPlaying={audioPlaying}
             currentSoundIndex={currentSoundIndex}
             soundPlayers={soundPlayers}
@@ -214,7 +240,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">10</div>
+        <div className="collapse-title text-xl font-medium">12</div>
         <div className="collapse-content">
           <p>
             PERFORM A STEALTH CHECK (DIFFICULTY 6). ADD 1 TO YOUR RESULT IF YOU
@@ -225,10 +251,10 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">11</div>
+        <div className="collapse-title text-xl font-medium">13</div>
         <div className="collapse-content">
           <AudioButton
-            index={5}
+            index={6}
             audioPlaying={audioPlaying}
             currentSoundIndex={currentSoundIndex}
             soundPlayers={soundPlayers}
@@ -247,7 +273,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">12</div>
+        <div className="collapse-title text-xl font-medium">14</div>
         <div className="collapse-content">
           <p>
             PERFORM A SEARCH CHECK (DIFFICULTY 5). IF YOU SUCCEED, ALL OATHSWORN
@@ -257,10 +283,10 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">13</div>
+        <div className="collapse-title text-xl font-medium">15</div>
         <div className="collapse-content">
           <AudioButton
-            index={6}
+            index={7}
             audioPlaying={audioPlaying}
             currentSoundIndex={currentSoundIndex}
             soundPlayers={soundPlayers}
@@ -272,7 +298,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">14</div>
+        <div className="collapse-title text-xl font-medium">16</div>
         <div className="collapse-content">
           <p>
             PERFORM A REASONING CHECK (DIFFICULTY 3). IF YOU SUCCEED, MARK THE
@@ -283,10 +309,10 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">15</div>
+        <div className="collapse-title text-xl font-medium">17</div>
         <div className="collapse-content">
           <AudioButton
-            index={7}
+            index={8}
             audioPlaying={audioPlaying}
             currentSoundIndex={currentSoundIndex}
             soundPlayers={soundPlayers}
@@ -304,17 +330,17 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">16</div>
+        <div className="collapse-title text-xl font-medium">18</div>
         <div className="collapse-content">
           <p>PERFORM A ROUND OF COMBAT AGAINST DEFENSE 8.</p>
         </div>
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">17</div>
+        <div className="collapse-title text-xl font-medium">19</div>
         <div className="collapse-content">
           <AudioButton
-            index={7}
+            index={9}
             audioPlaying={audioPlaying}
             currentSoundIndex={currentSoundIndex}
             soundPlayers={soundPlayers}
@@ -343,7 +369,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">18</div>
+        <div className="collapse-title text-xl font-medium">20</div>
         <div className="collapse-content">
           <p>
             PERFORM A ROUND OF COMBAT AGAINST DEFENSE 8. ANY THAT SUCCEED, GAIN
@@ -353,10 +379,10 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">19</div>
+        <div className="collapse-title text-xl font-medium">21</div>
         <div className="collapse-content">
           <AudioButton
-            index={7}
+            index={10}
             audioPlaying={audioPlaying}
             currentSoundIndex={currentSoundIndex}
             soundPlayers={soundPlayers}
@@ -372,7 +398,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">20</div>
+        <div className="collapse-title text-xl font-medium">22</div>
         <div className="collapse-content">
           <p>IF YOU HAVE THE MYSTERY CHEST, OPEN MYSTERY BOX 14.</p>
           <p>IF YOU DO NOT HAVE THE MYSTERY CHEST, OPEN MYSTERY ENVELOPE 14.</p>
@@ -381,11 +407,11 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">21</div>
+        <div className="collapse-title text-xl font-medium">23</div>
         <div className="collapse-content">
           <h3 className="text-1xl font-bold">Epilogue</h3>
           <AudioButton
-            index={8}
+            index={11}
             audioPlaying={audioPlaying}
             currentSoundIndex={currentSoundIndex}
             soundPlayers={soundPlayers}

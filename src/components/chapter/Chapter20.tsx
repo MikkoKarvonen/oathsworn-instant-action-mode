@@ -1,15 +1,15 @@
 import { useState } from "react";
 import useSound from "use-sound";
 
-import audio1 from "../../assets/audio/chapter1/1.mp3";
-import audio2 from "../../assets/audio/chapter1/2.mp3";
-import audio3 from "../../assets/audio/chapter1/3.mp3";
-import audio4 from "../../assets/audio/chapter1/4.mp3";
-import audio5 from "../../assets/audio/chapter1/5.mp3";
-import audio6 from "../../assets/audio/chapter1/6.mp3";
-import audio7 from "../../assets/audio/chapter1/7.mp3";
-import audio8 from "../../assets/audio/chapter1/8.mp3";
-import audio9 from "../../assets/audio/chapter1/9.mp3";
+import audio1 from "../../assets/audio/chapter20/1.mp3";
+import audio2 from "../../assets/audio/chapter20/2.mp3";
+import audio3 from "../../assets/audio/chapter20/3.mp3";
+import audio4 from "../../assets/audio/chapter20/4.mp3";
+import audio5 from "../../assets/audio/chapter20/5.mp3";
+import audio6 from "../../assets/audio/chapter20/6.mp3";
+import audio7 from "../../assets/audio/chapter20/7.mp3";
+import audio8 from "../../assets/audio/chapter20/8.mp3";
+import audio9 from "../../assets/audio/chapter20/9.mp3";
 
 import map from "../../assets/images/1.png";
 import { AudioButton } from "../../assets/audioHandler";
@@ -344,7 +344,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">20</div>
+        <div className="collapse-title text-xl font-medium">16</div>
         <div className="collapse-content">
           <p>
             PERFORM A REASONING CHECK (DIFFICULTY 5). ADD 1 TO YOUR RESULT IF
@@ -358,7 +358,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">21</div>
+        <div className="collapse-title text-xl font-medium">17</div>
         <div className="collapse-content">
           <h3 className="text-1xl font-bold">Epilogue</h3>
           <AudioButton
@@ -381,7 +381,7 @@ const Chapter = () => {
       </div>
       <div className="collapse collapse-plus bg-base-200">
         <input type="radio" name="my-accordion-3" />
-        <div className="collapse-title text-xl font-medium">22</div>
+        <div className="collapse-title text-xl font-medium">18</div>
         <div className="collapse-content">
           <p>
             IF YOU FINISHED THE ENCOUNTER WITH 9 OR MORE TOTAL HIT POINTS ON ALL
