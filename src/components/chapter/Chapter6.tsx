@@ -39,9 +39,9 @@ const Chapter = () => {
 
   return (
     <div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" defaultChecked />
-        <div className="collapse-title text-xl font-medium">1 </div>
+        <div className="collapse-title text-xl font-medium">1</div>
         <div className="collapse-content">
           <AudioButton
             index={0}
@@ -69,7 +69,7 @@ const Chapter = () => {
           </p>
         </div>
       </div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">2</div>
         <div className="collapse-content">
@@ -79,7 +79,7 @@ const Chapter = () => {
           </p>
         </div>
       </div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">3</div>
         <div className="collapse-content">
@@ -125,14 +125,14 @@ const Chapter = () => {
           </p>
         </div>
       </div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">4</div>
         <div className="collapse-content">
           <p>PERFORM A ROUND OF COMBAT AGAINST DEFENSE 6.</p>
         </div>
       </div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">5</div>
         <div className="collapse-content">
@@ -151,7 +151,7 @@ const Chapter = () => {
           </p>
         </div>
       </div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">6</div>
         <div className="collapse-content">
@@ -161,7 +161,7 @@ const Chapter = () => {
           </p>{" "}
         </div>
       </div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">7</div>
         <div className="collapse-content">
@@ -179,14 +179,14 @@ const Chapter = () => {
           </p>
         </div>
       </div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">8</div>
         <div className="collapse-content">
           <p>YOU MAY START A TRADE APOTHECARY.</p>{" "}
         </div>
       </div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">9</div>
         <div className="collapse-content">
@@ -212,7 +212,7 @@ const Chapter = () => {
           </p>
         </div>
       </div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">10</div>
         <div className="collapse-content">
@@ -225,7 +225,7 @@ const Chapter = () => {
           <p>ALL OATHSWORN GAIN A +2 ANIMUS TOKEN.</p>
         </div>
       </div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">11</div>
         <div className="collapse-content">
@@ -243,7 +243,7 @@ const Chapter = () => {
           </p>
         </div>
       </div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">12</div>
         <div className="collapse-content">
@@ -253,7 +253,7 @@ const Chapter = () => {
           </p>{" "}
         </div>
       </div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">13</div>
         <div className="collapse-content">
@@ -290,14 +290,14 @@ const Chapter = () => {
           </p>
         </div>
       </div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">14</div>
         <div className="collapse-content">
           <p>PERFORM A ROUND OF COMBAT AGAINST DEFENSE 7.</p>
         </div>
       </div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">15</div>
         <div className="collapse-content">
@@ -326,7 +326,7 @@ const Chapter = () => {
           </p>
         </div>
       </div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">16</div>
         <div className="collapse-content">
@@ -337,7 +337,7 @@ const Chapter = () => {
           <p>IF YOU HIRE YANI, GAIN ALLY CARD 18 (YANI).</p>
         </div>
       </div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">17</div>
         <div className="collapse-content">
@@ -361,7 +361,7 @@ const Chapter = () => {
         </div>
       </div>
 
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">18</div>
         <div className="collapse-content">
@@ -374,7 +374,7 @@ const Chapter = () => {
           <img src={map} />
         </div>
       </div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">19</div>
         <div className="collapse-content">
@@ -396,7 +396,7 @@ const Chapter = () => {
           </p>
         </div>
       </div>
-      <div className="collapse collapse-plus bg-base-200">
+      <div className="collapse collapse-plus bg-base-200  mb-2 ">
         <input type="radio" name="my-accordion-3" />
         <div className="collapse-title text-xl font-medium">20</div>
         <div className="collapse-content">
