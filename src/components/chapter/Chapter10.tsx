@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useSound from "use-sound";
 
 import audio1 from "../../assets/audio/chapter10/1.mp3";
 import audio2 from "../../assets/audio/chapter10/2.mp3";
@@ -13,8 +12,8 @@ import audio9 from "../../assets/audio/chapter10/9.mp3";
 import audio10 from "../../assets/audio/chapter10/10.mp3";
 
 import map from "../../assets/images/1.png";
-import { AudioButton } from "../../assets/audioHandler";
 import Collapse from "../Collapse";
+import Player from "../Player";
 const sounds = [
   audio1,
   audio2,
@@ -29,24 +28,10 @@ const sounds = [
 ];
 
 const Chapter = () => {
-  const [currentSoundIndex, setCurrentSoundIndex] = useState<number | null>(
-    null
-  );
-  const [audioPlaying, setAudioPlaying] = useState(false);
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const soundPlayers = sounds.map((sound) => useSound(sound));
+  const [currentAudio, setCurrentAudio] = useState(0);
 
   const sections = [
     <>
-      <AudioButton
-        index={0}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         The final mendicant has died of the plague and hope has died with them.
         The plague has spread throughout the Gutters and The Cobbles now,
@@ -81,14 +66,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={1}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         The King, with assent from his Watcher council, agrees to the
         expedition. You are assigned a group of botanists and archivists to
@@ -101,14 +78,6 @@ const Chapter = () => {
       <p>YOU MAY START A TRADE WITH THE BANKSMITH AND APOTHECARY.</p>
     </>,
     <>
-      <AudioButton
-        index={2}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         With preparations complete, you depart the plagued city once more. Many
         marches into the journey, you reach the end of the Wire Road. This is
@@ -128,14 +97,6 @@ const Chapter = () => {
       <p>PERFORM A ROUND OF COMBAT AGAINST DEFENSE 8.</p>{" "}
     </>,
     <>
-      <AudioButton
-        index={3}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         You manage to slay the beast, but when Guide returns, she is shocked to
         see the corpse and releases a cloud of her spores in distress. As the
@@ -157,14 +118,6 @@ const Chapter = () => {
       </p>{" "}
     </>,
     <>
-      <AudioButton
-        index={4}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Each morning, you search in vain for tracks left behind but never find
         any. Less experienced members of your party are convinced you are
@@ -178,14 +131,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={5}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Your fears are confirmed one afternoon as your caravan passes between a
         pair of hollowed out tree husks. Suddenly, Cyprian's squire is yanked
@@ -198,14 +143,6 @@ const Chapter = () => {
       <p>ALL OATHSWORN GAIN A REDRAW TOKEN.</p>{" "}
     </>,
     <>
-      <AudioButton
-        index={6}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Once it is safe again, you can see Guide standing in front of what looks
         like an ancient mural on a stone slab engraved with organic looking
@@ -223,14 +160,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={7}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Whatever is out there, you need to get to the Wychwood. You sense the
         Wychwood cannot be far, as the environment has gradually become a mix of
@@ -250,14 +179,6 @@ const Chapter = () => {
       <p>ALL OATHSWORN LOSE 1 HIT POINT.</p>
     </>,
     <>
-      <AudioButton
-        index={8}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Finally, the sickly trees entwined with the brush of the Deepwood give
         way to an explosion of color and foliage unlike any you have seen.
@@ -281,14 +202,7 @@ const Chapter = () => {
     </>,
     <>
       <h3 className="text-1xl font-bold">Epilogue</h3>
-      <AudioButton
-        index={9}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
+
       <p>
         The Forgotten King who has preyed on your party is on his knees before
         you. How many has he killed in his one man war against all outsiders? As
@@ -310,10 +224,17 @@ const Chapter = () => {
   return (
     <div>
       {sections.map((section, index) => (
-        <Collapse key={index} index={index + 1} checked={index === 0}>
+        <Collapse
+          key={index}
+          index={index + 1}
+          checked={index === 0}
+          audioIndex={index % 2 === 0 ? index / 2 : undefined}
+          setCurrentAudio={setCurrentAudio}
+        >
           {section}
         </Collapse>
       ))}
+      <Player sound={sounds[currentAudio]} />
     </div>
   );
 };

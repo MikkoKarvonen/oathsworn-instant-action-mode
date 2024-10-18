@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useSound from "use-sound";
 
 import audio1 from "../../assets/audio/chapter14/1.mp3";
 import audio2 from "../../assets/audio/chapter14/2.mp3";
@@ -15,8 +14,8 @@ import audio11 from "../../assets/audio/chapter14/11.mp3";
 import audio12 from "../../assets/audio/chapter14/12.mp3";
 
 import map from "../../assets/images/1.png";
-import { AudioButton } from "../../assets/audioHandler";
 import Collapse from "../Collapse";
+import Player from "../Player";
 const sounds = [
   audio1,
   audio2,
@@ -33,24 +32,10 @@ const sounds = [
 ];
 
 const Chapter = () => {
-  const [currentSoundIndex, setCurrentSoundIndex] = useState<number | null>(
-    null
-  );
-  const [audioPlaying, setAudioPlaying] = useState(false);
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const soundPlayers = sounds.map((sound) => useSound(sound));
+  const [currentAudio, setCurrentAudio] = useState(0);
 
   const sections = [
     <>
-      <AudioButton
-        index={0}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Surrounded by a dozen slain infected, you sit on the docks north of the
         river. You are infected. Looking down at the black spots forming on your
@@ -72,14 +57,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={1}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Taking you through a labyrinth of tunnels, the 'asset' leads you out on
         the south side of the river to where a tent city has grown on the
@@ -97,14 +74,6 @@ const Chapter = () => {
       <p>YOU MAY START A TRADE WITH THE BANKSMITH AND APOTHECARY.</p>
     </>,
     <>
-      <AudioButton
-        index={2}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Gathering your gear and checking your packs you dive back into the
         Deepwood. You start your travel in a needle-like rain, which only grows
@@ -119,14 +88,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={3}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         You hurry along the Wire, having to ditch your rations to distract the
         swarm. Then suddenly, your hand grasps nothing. The Wire is gone, and if
@@ -150,14 +111,6 @@ const Chapter = () => {
       </p>{" "}
     </>,
     <>
-      <AudioButton
-        index={4}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Arriving there, you find nothing but ruins and corpses. This attack did
         not happen recently, but several weeks ago. Scouring the ruins, you find
@@ -176,14 +129,6 @@ const Chapter = () => {
       </p>{" "}
     </>,
     <>
-      <AudioButton
-        index={5}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         You find the caravan, but it has been attacked and there are no bodies
         or food. Nydia is clearly hiding something from you, and resolve to
@@ -198,14 +143,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={6}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         To your surprise you find a woman. It is Nydia's daughter who is locked
         up. It seems Nydia did not want you talking to her. She manages to tell
@@ -222,14 +159,6 @@ const Chapter = () => {
       </p>{" "}
     </>,
     <>
-      <AudioButton
-        index={7}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>In the passage, you can see thick webs coating the walls.</p>
     </>,
     <>
@@ -240,14 +169,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={8}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Peering through the milky white substance, you see bodies laying on the
         floor, their chests moving up and down with their breath. You cut
@@ -260,14 +181,6 @@ const Chapter = () => {
       <p>PERFORM A ROUND OF COMBAT AGAINST DEFENSE 8.</p>
     </>,
     <>
-      <AudioButton
-        index={9}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         You manage to fight off the scuttling wave. If those were the babies,
         you do not want to meet the mother. Heading back, you note silk strands
@@ -292,14 +205,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={10}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Pushed to the edge of the village, you hear the sound of many legs
         behind you. Turning around, you see eight black orbs staring back. The
@@ -313,14 +218,7 @@ const Chapter = () => {
     </>,
     <>
       <h3 className="text-1xl font-bold">Epilogue</h3>
-      <AudioButton
-        index={11}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
+
       <p>
         With the Wandering Queen slain, the villagers start lamenting. They say
         without the Queen's protection they are doomed. It seems they had made
@@ -346,10 +244,17 @@ const Chapter = () => {
   return (
     <div>
       {sections.map((section, index) => (
-        <Collapse key={index} index={index + 1} checked={index === 0}>
+        <Collapse
+          key={index}
+          index={index + 1}
+          checked={index === 0}
+          audioIndex={index % 2 === 0 ? index / 2 : undefined}
+          setCurrentAudio={setCurrentAudio}
+        >
           {section}
         </Collapse>
       ))}
+      <Player sound={sounds[currentAudio]} />
     </div>
   );
 };

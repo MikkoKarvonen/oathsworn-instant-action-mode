@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useSound from "use-sound";
 
 import audio1 from "../../assets/audio/chapter16/1.mp3";
 import audio2 from "../../assets/audio/chapter16/2.mp3";
@@ -12,8 +11,8 @@ import audio8 from "../../assets/audio/chapter16/8.mp3";
 import audio9 from "../../assets/audio/chapter16/9.mp3";
 
 import map from "../../assets/images/1.png";
-import { AudioButton } from "../../assets/audioHandler";
 import Collapse from "../Collapse";
+import Player from "../Player";
 const sounds = [
   audio1,
   audio2,
@@ -27,24 +26,10 @@ const sounds = [
 ];
 
 const Chapter = () => {
-  const [currentSoundIndex, setCurrentSoundIndex] = useState<number | null>(
-    null
-  );
-  const [audioPlaying, setAudioPlaying] = useState(false);
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const soundPlayers = sounds.map((sound) => useSound(sound));
+  const [currentAudio, setCurrentAudio] = useState(0);
 
   const sections = [
     <>
-      <AudioButton
-        index={0}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         As you wake up to a sweltering day in the City of Masks you look down at
         your arms. The black spots are spreading and whatever effect the elixir
@@ -58,14 +43,6 @@ const Chapter = () => {
       <p>YOU MAY START A TRADE WITH THE BANKSMITH AND APOTHECARY.</p>
     </>,
     <>
-      <AudioButton
-        index={1}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         When you return to the underground, you learn the Pytone had been right.
         There never was a witch. With no other lead, you return to the Pytone
@@ -89,14 +66,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={2}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Hearing that the animal trainers may have some information, you head to
         the Coliseum. You pass many cages with creatures when one of them
@@ -119,14 +88,6 @@ const Chapter = () => {
       <p>ALL OATHSWORN GAIN A +2 ANIMUS TOKEN.</p>
     </>,
     <>
-      <AudioButton
-        index={3}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Traveling to where the caravan had been attacked, you arrive to see the
         carnage the immense beast caused. You feel the earth shudder and
@@ -142,14 +103,6 @@ const Chapter = () => {
       </p>{" "}
     </>,
     <>
-      <AudioButton
-        index={4}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         The Ogre charges into the trees. You give chase but are forced to stop
         before a sheer cliff that falls hundreds of feet into the Deepwood
@@ -186,14 +139,6 @@ const Chapter = () => {
       <p>ALL OATHSWORN GAIN A REDRAW TOKEN.</p>
     </>,
     <>
-      <AudioButton
-        index={5}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Finally past the guard, you find vault doors for the five great
         families, as well as a sixth door gouged and defaced. The gouged vault
@@ -209,14 +154,6 @@ const Chapter = () => {
       </p>{" "}
     </>,
     <>
-      <AudioButton
-        index={6}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         An old city map you find shows an ancient and very different Thrace. A
         huge sixth district stretches out to the northeast, beyond the
@@ -258,14 +195,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={7}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Your exchange with the voices over, the clearing returns to darkness and
         you hear a growl coming closer. This time it is real. Mycelle, the Ogre
@@ -281,14 +210,7 @@ const Chapter = () => {
     </>,
     <>
       <h3 className="text-1xl font-bold">Epilogue</h3>
-      <AudioButton
-        index={8}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
+
       <p>
         You remove the Ogre's heart as instructed. Somehow, the organ still
         beats. Returning the coveted item to the masked noble, you are given the
@@ -313,10 +235,17 @@ const Chapter = () => {
   return (
     <div>
       {sections.map((section, index) => (
-        <Collapse key={index} index={index + 1} checked={index === 0}>
+        <Collapse
+          key={index}
+          index={index + 1}
+          checked={index === 0}
+          audioIndex={index % 2 === 0 ? index / 2 : undefined}
+          setCurrentAudio={setCurrentAudio}
+        >
           {section}
         </Collapse>
       ))}
+      <Player sound={sounds[currentAudio]} />
     </div>
   );
 };

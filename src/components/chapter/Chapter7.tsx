@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useSound from "use-sound";
 
 import audio1 from "../../assets/audio/chapter7/1.mp3";
 import audio2 from "../../assets/audio/chapter7/2.mp3";
@@ -11,29 +10,15 @@ import audio7 from "../../assets/audio/chapter7/7.mp3";
 import audio8 from "../../assets/audio/chapter7/8.mp3";
 
 import map from "../../assets/images/1.png";
-import { AudioButton } from "../../assets/audioHandler";
 import Collapse from "../Collapse";
+import Player from "../Player";
 const sounds = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8];
 
 const Chapter = () => {
-  const [currentSoundIndex, setCurrentSoundIndex] = useState<number | null>(
-    null
-  );
-  const [audioPlaying, setAudioPlaying] = useState(false);
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const soundPlayers = sounds.map((sound) => useSound(sound));
+  const [currentAudio, setCurrentAudio] = useState(0);
 
   const sections = [
     <>
-      <AudioButton
-        index={0}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Rays of sunlight pierce the cloud cover illuminating the majestic white
         walls of Cistercia. The expansive, tiered city is truly a sight to
@@ -54,14 +39,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={1}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         You are brought to the Conclave, the seat of power in Cistercia, where
         the Lord Marshall is waiting for you. You are told the requisition of
@@ -80,14 +57,6 @@ const Chapter = () => {
       <p>YOU MAY START A TRADE WITH THE BANKSMITH AND APOTHECARY.</p>
     </>,
     <>
-      <AudioButton
-        index={2}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         The first stop on your investigation is at the 'Hall of the Hundred'.
         This massive, cathedral-like garrison is where the towering Venerators
@@ -117,14 +86,6 @@ const Chapter = () => {
       <p>PERFORM A ROUND OF COMBAT AGAINST DEFENSE 9.</p>{" "}
     </>,
     <>
-      <AudioButton
-        index={3}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         You prove your strength, or at least that you can take a hit, and are
         brought to a separate hall where the sacred Venerator armor is
@@ -149,14 +110,6 @@ const Chapter = () => {
       </p>{" "}
     </>,
     <>
-      <AudioButton
-        index={4}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         The tomes in this vault contain forbidden rituals of dark magic. One of
         them has been stolen. Whatever Venerator Logos is up to, it is outlawed
@@ -179,14 +132,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={5}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         You follow the tracks, and deeper inside, you find some huge stone
         coffins that have recently been opened. Inside them, you find scraps of
@@ -203,14 +148,6 @@ const Chapter = () => {
       </p>{" "}
     </>,
     <>
-      <AudioButton
-        index={6}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Following the tracks of this Venerator becomes like tracking a creature
         in the Deepwood. The clues lead you out of the city to a small village,
@@ -249,14 +186,7 @@ const Chapter = () => {
     </>,
     <>
       <h3 className="text-1xl font-bold">Epilogue</h3>
-      <AudioButton
-        index={7}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
+
       <p>
         As the Venerator lies fallen in a pool of blood, look around at the
         surrounding townspeople and see they are all still in a trance. The
@@ -277,10 +207,17 @@ const Chapter = () => {
   return (
     <div>
       {sections.map((section, index) => (
-        <Collapse key={index} index={index + 1} checked={index === 0}>
+        <Collapse
+          key={index}
+          index={index + 1}
+          checked={index === 0}
+          audioIndex={index % 2 === 0 ? index / 2 : undefined}
+          setCurrentAudio={setCurrentAudio}
+        >
           {section}
         </Collapse>
       ))}
+      <Player sound={sounds[currentAudio]} />
     </div>
   );
 };

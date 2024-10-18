@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useSound from "use-sound";
 
 import audio1 from "../../assets/audio/chapter19/1.mp3";
 import audio2 from "../../assets/audio/chapter19/2.mp3";
@@ -13,8 +12,8 @@ import audio9 from "../../assets/audio/chapter19/9.mp3";
 import audio10 from "../../assets/audio/chapter19/10.mp3";
 
 import map from "../../assets/images/1.png";
-import { AudioButton } from "../../assets/audioHandler";
 import Collapse from "../Collapse";
+import Player from "../Player";
 const sounds = [
   audio1,
   audio2,
@@ -29,24 +28,10 @@ const sounds = [
 ];
 
 const Chapter = () => {
-  const [currentSoundIndex, setCurrentSoundIndex] = useState<number | null>(
-    null
-  );
-  const [audioPlaying, setAudioPlaying] = useState(false);
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const soundPlayers = sounds.map((sound) => useSound(sound));
+  const [currentAudio, setCurrentAudio] = useState(0);
 
   const sections = [
     <>
-      <AudioButton
-        index={0}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         You have reached the Salt Tower whose cold stone walls give you a
         moment's respite on your crusade. Among the stores, your men find
@@ -61,14 +46,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={1}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Slinging your packs on your backs, you head out on the last leg of your
         journey toward Raven's Reach. The Deepwood is getting thicker and noises
@@ -88,14 +65,6 @@ const Chapter = () => {
       <p>PERFORM A ROUND OF COMBAT AGAINST DEFENSE 8.</p>
     </>,
     <>
-      <AudioButton
-        index={2}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Waves of corrupt life crash into your lines. Again and again, you repel
         them, but they keep on coming, clawing over their dead to reach you.
@@ -120,14 +89,6 @@ const Chapter = () => {
       <p>ALL OATHSWORN GAIN A REDRAW TOKEN.</p>{" "}
     </>,
     <>
-      <AudioButton
-        index={3}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         The Broodmother screeches as you heave the gate closed and the sounds
         beyond become muffled. Turning, you are greeted with the worst sound in
@@ -145,14 +106,6 @@ const Chapter = () => {
       </p>{" "}
     </>,
     <>
-      <AudioButton
-        index={4}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         You find a place to camp with an ever dwindling number of soldiers, and
         light the area well as night falls. You can feel the shadows moving.
@@ -163,14 +116,6 @@ const Chapter = () => {
       <p>PERFORM A ROUND OF COMBAT AGAINST DEFENSE 10.</p>
     </>,
     <>
-      <AudioButton
-        index={5}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Not everyone who went to sleep is alive when you wake. Rousing the army,
         you try to find a path through the city, and find that the place is far
@@ -184,14 +129,6 @@ const Chapter = () => {
       </p>{" "}
     </>,
     <>
-      <AudioButton
-        index={6}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         You find strange mechanical sculptures, machines and ornate buildings.
         This city was far more magnificent than any city under The Pact. At its
@@ -225,14 +162,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={7}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Rushing through the city with what remains of your army, you reach the
         gate and dive back into the Deepwood. You can hear them, not far off and
@@ -249,14 +178,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={8}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Just as you reach the gate, the hulking form of the Broodmother
         Matriarch crashes in front of you. With arm length incisors and an
@@ -272,14 +193,7 @@ const Chapter = () => {
     </>,
     <>
       <h3 className="text-1xl font-bold">Epilogue</h3>
-      <AudioButton
-        index={9}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
+
       <p>
         With the Broodmother Matriarch slain, what is left of your decimated
         army piles into Raven's Reach. There are only a few of you now, but it
@@ -301,10 +215,17 @@ const Chapter = () => {
   return (
     <div>
       {sections.map((section, index) => (
-        <Collapse key={index} index={index + 1} checked={index === 0}>
+        <Collapse
+          key={index}
+          index={index + 1}
+          checked={index === 0}
+          audioIndex={index % 2 === 0 ? index / 2 : undefined}
+          setCurrentAudio={setCurrentAudio}
+        >
           {section}
         </Collapse>
       ))}
+      <Player sound={sounds[currentAudio]} />
     </div>
   );
 };

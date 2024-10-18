@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useSound from "use-sound";
 
 import audio1 from "../../assets/audio/chapter4/1.mp3";
 import audio2 from "../../assets/audio/chapter4/2.mp3";
@@ -12,9 +11,8 @@ import audio8 from "../../assets/audio/chapter4/8.mp3";
 import audio9 from "../../assets/audio/chapter4/9.mp3";
 
 import map from "../../assets/images/1.png";
-import { AudioButton } from "../../assets/audioHandler";
 import Collapse from "../Collapse";
-
+import Player from "../Player";
 const sounds = [
   audio1,
   audio2,
@@ -28,24 +26,10 @@ const sounds = [
 ];
 
 const Chapter = () => {
-  const [currentSoundIndex, setCurrentSoundIndex] = useState<number | null>(
-    null
-  );
-  const [audioPlaying, setAudioPlaying] = useState(false);
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const soundPlayers = sounds.map((sound) => useSound(sound));
+  const [currentAudio, setCurrentAudio] = useState(0);
 
   const sections = [
     <>
-      <AudioButton
-        index={0}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         After the fall of Bastone, most of your caravan is still alive... lost,
         but alive. Without the Wire Road, you have to rely on your other
@@ -62,14 +46,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={1}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         You travel for the rest of the day, arriving at a large stone, etched
         with some long forgotten writing. A waystone you recognize on Greycane's
@@ -90,14 +66,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={2}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         As a dim light breaks through the thick green canopy, your group has
         grown smaller. There is a solemn silence as you break camp and continue
@@ -120,14 +88,6 @@ const Chapter = () => {
       <p>ALL OATHSWORN GAIN A +2 ANIMUS TOKEN.</p>
     </>,
     <>
-      <AudioButton
-        index={3}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Matters do not get any easier. The next day, shortly after the march has
         started, your caravan wanders into a field of bloodthorns. Crimson and
@@ -142,14 +102,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={4}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Beyond the bloodthorns, the green shows no sign of relenting. March
         after march continues, and soon the question of food arises. For the
@@ -169,14 +121,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={5}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         You continue to march for what feels like an eternity, and just as you
         begin to lose hope of ever finding any sign of civilization, you spot an
@@ -199,14 +143,6 @@ const Chapter = () => {
       <p>GAIN ALLY CARD 12 (LUCKY).</p>
     </>,
     <>
-      <AudioButton
-        index={6}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Not far from the bridge, you find a long forgotten village now overgrown
         with weeds and sickly Deepwood vines. Faint crying can be heard from the
@@ -222,14 +158,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={7}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         As you enter the village, you find a group of refugees fearfully looking
         up into the trees. As they do so, a hulking warrior clad in furs and
@@ -249,14 +177,7 @@ const Chapter = () => {
     </>,
     <>
       <h3 className="text-1xl font-bold">Epilogue</h3>
-      <AudioButton
-        index={8}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
+
       <p>
         Bodies litter the village. There is something different about killing
         men, even men such as these. You take in the scene and realize it was
@@ -293,10 +214,17 @@ const Chapter = () => {
   return (
     <div>
       {sections.map((section, index) => (
-        <Collapse key={index} index={index + 1} checked={index === 0}>
+        <Collapse
+          key={index}
+          index={index + 1}
+          checked={index === 0}
+          audioIndex={index % 2 === 0 ? index / 2 : undefined}
+          setCurrentAudio={setCurrentAudio}
+        >
           {section}
         </Collapse>
       ))}
+      <Player sound={sounds[currentAudio]} />
     </div>
   );
 };

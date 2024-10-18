@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useSound from "use-sound";
 
 import audio1 from "../../assets/audio/chapter3/1.mp3";
 import audio2 from "../../assets/audio/chapter3/2.mp3";
@@ -13,9 +12,8 @@ import audio9 from "../../assets/audio/chapter3/9.mp3";
 import audio10 from "../../assets/audio/chapter3/10.mp3";
 
 import map from "../../assets/images/1.png";
-import { AudioButton } from "../../assets/audioHandler";
 import Collapse from "../Collapse";
-
+import Player from "../Player";
 const sounds = [
   audio1,
   audio2,
@@ -30,24 +28,10 @@ const sounds = [
 ];
 
 const Chapter = () => {
-  const [currentSoundIndex, setCurrentSoundIndex] = useState<number | null>(
-    null
-  );
-  const [audioPlaying, setAudioPlaying] = useState(false);
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const soundPlayers = sounds.map((sound) => useSound(sound));
+  const [currentAudio, setCurrentAudio] = useState(0);
 
   const sections = [
     <>
-      <AudioButton
-        index={0}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         No glasses are raised and no songs are sung in your honor after the
         battle with the creature. Without proof of the Satyr's death, the town
@@ -65,14 +49,6 @@ const Chapter = () => {
       <p>YOU MAY START A TRADE WITH THE BANKSMITH AND APOTHECARY.</p>
     </>,
     <>
-      <AudioButton
-        index={1}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Fableman Greycane catches you in the street, he looks tired and drawn.
         "They've taken her," he tells you. "Lyceen, the Apothecary. They blame
@@ -109,14 +85,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={2}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Lyceen collapses into your arms, gasping for breath. "You should have
         done that sooner," she says. "The Keening could have been prevented."
@@ -126,14 +94,6 @@ const Chapter = () => {
       <p>GAIN ALLY CARD 9 (LYCEEN).</p>
     </>,
     <>
-      <AudioButton
-        index={3}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         "The Deepwood's come alive!" cries a man, as he flees from the
         destruction. As buildings begin to collapse in a pattern heading
@@ -153,14 +113,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={4}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         "This is my street! Please, we need to help them!" your guide, Midge,
         shouts as he points to a half-fallen building.
@@ -177,14 +129,6 @@ const Chapter = () => {
       <p>You continue without helping.</p>
     </>,
     <>
-      <AudioButton
-        index={5}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         You continue running toward the main gate. It is barred shut and will
         take time to open. As you and the guards scramble to lift the heavy bar,
@@ -204,14 +148,6 @@ const Chapter = () => {
       <p>ALL OATHSWORN GAIN A DEFENSE TOKEN.</p>
     </>,
     <>
-      <AudioButton
-        index={6}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         You finally manage to get the gate open. You turn to run, but are
         confronted with a sea of claws and teeth waiting outside. You try
@@ -240,14 +176,6 @@ const Chapter = () => {
       <p>ALL OATHSWORN GAIN A REDRAW TOKEN.</p>
     </>,
     <>
-      <AudioButton
-        index={7}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Banding together, you decide on your next steps. Your only hope at this
         point is to head home to Verum, but you are going to need to find the
@@ -263,14 +191,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={8}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         The shaking stops for a moment, and the procession of refugees holds its
         collective breath. Suddenly, the gaping maw of a giant Wyrm bursts from
@@ -284,14 +204,7 @@ const Chapter = () => {
     </>,
     <>
       <h3 className="text-1xl font-bold">Epilogue</h3>
-      <AudioButton
-        index={9}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
+
       <p>
         You stand triumphant over hacked bits of the massive Wyrm's corpse, but
         the battle was not without casualties. Lost in the middle of the
@@ -316,10 +229,17 @@ const Chapter = () => {
   return (
     <div>
       {sections.map((section, index) => (
-        <Collapse key={index} index={index + 1} checked={index === 0}>
+        <Collapse
+          key={index}
+          index={index + 1}
+          checked={index === 0}
+          audioIndex={index % 2 === 0 ? index / 2 : undefined}
+          setCurrentAudio={setCurrentAudio}
+        >
           {section}
         </Collapse>
       ))}
+      <Player sound={sounds[currentAudio]} />
     </div>
   );
 };

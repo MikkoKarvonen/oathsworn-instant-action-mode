@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useSound from "use-sound";
 
 import audio1 from "../../assets/audio/chapter11.5/1.mp3";
 import audio2 from "../../assets/audio/chapter11.5/2.mp3";
@@ -10,18 +9,12 @@ import audio6 from "../../assets/audio/chapter11.5/6.mp3";
 import audio7 from "../../assets/audio/chapter11.5/7.mp3";
 
 import map from "../../assets/images/1.png";
-import { AudioButton } from "../../assets/audioHandler";
 import Collapse from "../Collapse";
+import Player from "../Player";
 const sounds = [audio1, audio2, audio3, audio4, audio5, audio6, audio7];
 
 const Chapter = () => {
-  const [currentSoundIndex, setCurrentSoundIndex] = useState<number | null>(
-    null
-  );
-  const [audioPlaying, setAudioPlaying] = useState(false);
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const soundPlayers = sounds.map((sound) => useSound(sound));
+  const [currentAudio, setCurrentAudio] = useState(1);
 
   const sections = [
     <>
@@ -32,14 +25,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={0}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         After your discovery of the Heart of Darkness, you are on your way back
         to Verum. Without the Wire Road or any idea where you are, your only
@@ -58,14 +43,6 @@ const Chapter = () => {
       <p>PERFORM A ROUND OF COMBAT AGAINST DEFENSE 9.</p>
     </>,
     <>
-      <AudioButton
-        index={1}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         In the morning, you notice an addition to your camp. The 'asset' sent
         from Raven Spire has returned to you. He had gone missing when you
@@ -89,14 +66,6 @@ const Chapter = () => {
       </p>{" "}
     </>,
     <>
-      <AudioButton
-        index={2}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         After several more days of travel, you hear a rumbling in the clouds,
         then the pitter-patter of rain as a storm breaks drenching everyone. You
@@ -111,14 +80,6 @@ const Chapter = () => {
       </p>{" "}
     </>,
     <>
-      <AudioButton
-        index={3}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         The storm subsides, and another day of travel brings you to a clearing
         where you find human remains. A merchant caravan long lost to predators.
@@ -134,14 +95,6 @@ const Chapter = () => {
       <p>ALL OATHSWORN GAIN A REDRAW TOKEN.</p>
     </>,
     <>
-      <AudioButton
-        index={4}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         With the dawn, you are awoken by strange movement around the clearing.
         As you get to your feet, several pod-like plants sprout from the mulch.
@@ -159,14 +112,6 @@ const Chapter = () => {
       </p>{" "}
     </>,
     <>
-      <AudioButton
-        index={5}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Grove Maidens are the architects of the A'Dendri bioforms, one of the
         most ancient of their race. One would never leave her unless under dire
@@ -181,14 +126,7 @@ const Chapter = () => {
     </>,
     <>
       <h3 className="text-1xl font-bold">Epilogue</h3>
-      <AudioButton
-        index={6}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
+
       <p>
         You subdue the Grove Maiden. The 'asset' moves to kill her, but you
         stand in the way. He may outrank you, and his mission may be vital to
@@ -215,10 +153,17 @@ const Chapter = () => {
   return (
     <div>
       {sections.map((section, index) => (
-        <Collapse key={index} index={index + 1} checked={index === 0}>
+        <Collapse
+          key={index}
+          index={index + 1}
+          checked={index === 0}
+          audioIndex={index % 2 === 1 ? Math.floor(index / 2) : undefined}
+          setCurrentAudio={setCurrentAudio}
+        >
           {section}
         </Collapse>
       ))}
+      <Player sound={sounds[currentAudio]} />
     </div>
   );
 };

@@ -1,5 +1,3 @@
-import useSound from "use-sound";
-
 type AudioHandlerProps = {
   index: number;
   audioPlaying: boolean;

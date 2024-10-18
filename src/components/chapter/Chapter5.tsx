@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useSound from "use-sound";
 
 import audio1 from "../../assets/audio/chapter5/1.mp3";
 import audio2 from "../../assets/audio/chapter5/2.mp3";
@@ -14,9 +13,8 @@ import audio10 from "../../assets/audio/chapter5/10.mp3";
 import audio11 from "../../assets/audio/chapter5/11.mp3";
 
 import map from "../../assets/images/1.png";
-import { AudioButton } from "../../assets/audioHandler";
 import Collapse from "../Collapse";
-
+import Player from "../Player";
 const sounds = [
   audio1,
   audio2,
@@ -32,24 +30,10 @@ const sounds = [
 ];
 
 const Chapter = () => {
-  const [currentSoundIndex, setCurrentSoundIndex] = useState<number | null>(
-    null
-  );
-  const [audioPlaying, setAudioPlaying] = useState(false);
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const soundPlayers = sounds.map((sound) => useSound(sound));
+  const [currentAudio, setCurrentAudio] = useState(0);
 
   const sections = [
     <>
-      <AudioButton
-        index={0}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Hunger, cold and constant rain gnaw at you and the remaining survivors
         from Bastone. Finally, hope at last. Rising above the trees in the
@@ -62,14 +46,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={1}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         The survivors cheer as they rush toward the sealed gate, begging for
         admittance. A Captain of the Wall Guard calls down to the caravan from
@@ -89,14 +65,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={2}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         The Guard Captain looks over his shoulder and bows his head in
         deference. In his place glides the unmistakable form of a Watcher, its
@@ -139,14 +107,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={3}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         You take a few days of rest, and see the new Broken Oak form up. The
         people from Bastone become regulars, telling of their new lives and they
@@ -175,14 +135,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={4}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         It does not take long to find the squire, Jonas, dwelling in the
         Gutters. A foul place, situated at the bottom of the old riverbed, the
@@ -196,14 +148,6 @@ const Chapter = () => {
       <p>GAIN ALLY CARD 15 (JONAS).</p>
     </>,
     <>
-      <AudioButton
-        index={5}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         The boy tells you that the cur, Keet, can be found at the Grand Bazaar.
         The thick crowds there are hard to navigate, but it gives you time to
@@ -214,14 +158,6 @@ const Chapter = () => {
       <p>ALL OATHSWORN MAY TRADE 5 IRON TO GAIN A +2 ANIMUS TOKEN ONCE.</p>
     </>,
     <>
-      <AudioButton
-        index={6}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Jonas points out Keet to you, and before she can bolt, you corner her
         with questions. She tells you where they were attacked, but she does not
@@ -240,14 +176,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={7}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         A short distance into the Deepwood, you find the broken and bloodied
         bodies of the lost expedition exactly where Keet described they would
@@ -270,14 +198,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={8}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Armed with as much knowledge as you can glean with the time you have,
         you assemble the new logging expedition and prepare yourselves.
@@ -287,14 +207,6 @@ const Chapter = () => {
       <p>YOU MAY START A TRADE WITH THE BANKSMITH AND APOTHECARY.</p>
     </>,
     <>
-      <AudioButton
-        index={9}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Under your protection, the new expedition heads out and begins to lay
         axes to trees. They start working, and shortly thereafter, you hear it.
@@ -311,14 +223,7 @@ const Chapter = () => {
     </>,
     <>
       <h3 className="text-1xl font-bold">Epilogue</h3>
-      <AudioButton
-        index={10}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
+
       <p>
         With the bloatfly dead, and its body burned, the loggers collect the
         timber and you return to Verum. On the march back you try not to think
@@ -342,10 +247,17 @@ const Chapter = () => {
   return (
     <div>
       {sections.map((section, index) => (
-        <Collapse key={index} index={index + 1} checked={index === 0}>
+        <Collapse
+          key={index}
+          index={index + 1}
+          checked={index === 0}
+          audioIndex={index % 2 === 0 ? index / 2 : undefined}
+          setCurrentAudio={setCurrentAudio}
+        >
           {section}
         </Collapse>
       ))}
+      <Player sound={sounds[currentAudio]} />
     </div>
   );
 };

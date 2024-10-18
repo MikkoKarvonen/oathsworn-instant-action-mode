@@ -11,12 +11,12 @@ function App() {
   return (
     <div className="max-h-screen overflow-scroll mh-2">
       <div className="flex justify-center">
-        <article className="prose p-4">
+        <article className="prose p-4 relative">
           <h1 className="text-4xl font-bold text-center">
             Oathsworn Instant Action Mode
           </h1>
           {selectedChapter !== 0 ? (
-            <>
+            <div className="mb-20">
               <Chapter chapter={selectedChapter} />
               <div className="mt-4 flex justify-center">
                 <button
@@ -26,7 +26,7 @@ function App() {
                   Back
                 </button>
               </div>
-            </>
+            </div>
           ) : (
             <div className="grid grid-cols-3 gap-2">
               {chapters.map((chapter, index) => (

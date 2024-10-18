@@ -1,0 +1,14 @@
+$rhap_theme-color: #b4ab28 !default;
+$rhap_background-color: #b4ab28 !default;
+$rhap_bar-color: #b4ab28 !important;
+$rhap_time-color: #b4ab28 !default;
+$rhap_font-family: inherit !default;
+
+.rhap_main-controls-button,
+.rhap_time {
+  color: #fff !important;
+}
+
+.rhap_progress-bar-show-download {
+  background-color: #fff !important;
+}

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useSound from "use-sound";
 
 import audio1 from "../../assets/audio/chapter2/1.mp3";
 import audio2 from "../../assets/audio/chapter2/2.mp3";
@@ -14,9 +13,8 @@ import audio10 from "../../assets/audio/chapter2/10.mp3";
 import audio11 from "../../assets/audio/chapter2/11.mp3";
 
 import map from "../../assets/images/1.png";
-import { AudioButton } from "../../assets/audioHandler";
 import Collapse from "../Collapse";
-
+import Player from "../Player";
 const sounds = [
   audio1,
   audio2,
@@ -32,24 +30,10 @@ const sounds = [
 ];
 
 const Chapter = () => {
-  const [currentSoundIndex, setCurrentSoundIndex] = useState<number | null>(
-    null
-  );
-  const [audioPlaying, setAudioPlaying] = useState(false);
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const soundPlayers = sounds.map((sound) => useSound(sound));
+  const [currentAudio, setCurrentAudio] = useState(0);
 
   const sections = [
     <>
-      <AudioButton
-        index={0}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Thistle vines tear at your arms as you rush through the soggy
         underbrush, desperate to distance yourselves from the encroaching beast.
@@ -65,14 +49,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={1}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         You dive for cover, suddenly awake in your straw mattress at The Broken
         Oak. The nightmare fades as you rise from your bed, bathed in sweat. One
@@ -90,14 +66,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={2}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         After your morning meal, you are escorted to the Palace where Lord
         Davenish wastes no time requisitioning your aid in apprehending a local
@@ -116,14 +84,6 @@ const Chapter = () => {
       <p>YOU MAY START A TRADE WITH THE BANKSMITH.</p>
     </>,
     <>
-      <AudioButton
-        index={3}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         As you conduct business with Gamel, the Banksmith, he asks if anyone has
         seen his son. Gamel proceeds to tell that you his son, Tam, has gone
@@ -136,14 +96,6 @@ const Chapter = () => {
       <p>GAIN ALLY CARD 6 (GAMEL).</p>
     </>,
     <>
-      <AudioButton
-        index={4}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Fully equipped, your party heads out into the city in search of any
         orange circles The Piper has left behind.
@@ -156,14 +108,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={5}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         You find the strange circles all over the city, including on the wall of
         the Apothecary's hut, where a rabble of angry citizens has gathered to
@@ -178,14 +122,6 @@ const Chapter = () => {
       <p>YOU MAY START A TRADE WITH APOTHECARY.</p>
     </>,
     <>
-      <AudioButton
-        index={6}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         The trail of evidence ultimately leads you to an empty well in a poor
         section of the city. Inside the well, you find a series of handholds
@@ -204,14 +140,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={7}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         Your chase through the twisting tunnels ends at a tattered rope ladder.
         Climbing the ladder, you come to the top of a section of the city wall
@@ -233,14 +161,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={8}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         The hunt through the Deepwood leads you to a gruesome scene. Several
         bodies, some of them still clinging to life, hang from the trees like
@@ -258,14 +178,6 @@ const Chapter = () => {
       </p>
     </>,
     <>
-      <AudioButton
-        index={9}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
       <p>
         As if ripped from your nightmares, the giant creature stomps out of the
         shadows and you immediately recognize its haunting orange eyes from your
@@ -285,14 +197,7 @@ const Chapter = () => {
     </>,
     <>
       <h3 className="text-1xl font-bold">Epilogue</h3>
-      <AudioButton
-        index={10}
-        audioPlaying={audioPlaying}
-        currentSoundIndex={currentSoundIndex}
-        soundPlayers={soundPlayers}
-        setAudioPlaying={setAudioPlaying}
-        setCurrentSoundIndex={setCurrentSoundIndex}
-      />
+
       <p>
         An explosion of darklight blinds you. When you come to your senses, the
         beast is gone. Quickly, rushing to the aid of the human puppets, you
@@ -316,10 +221,17 @@ const Chapter = () => {
   return (
     <div>
       {sections.map((section, index) => (
-        <Collapse key={index} index={index + 1} checked={index === 0}>
+        <Collapse
+          key={index}
+          index={index + 1}
+          checked={index === 0}
+          audioIndex={index % 2 === 0 ? index / 2 : undefined}
+          setCurrentAudio={setCurrentAudio}
+        >
           {section}
         </Collapse>
       ))}
+      <Player sound={sounds[currentAudio]} />
     </div>
   );
 };

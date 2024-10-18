@@ -21,6 +21,8 @@ import Chapter20 from "./chapter/Chapter20";
 import Chapter21 from "./chapter/Chapter21";
 import Chapter11_5 from "./chapter/Chapter11.5";
 
+import "react-h5-audio-player/lib/styles.css";
+
 const Chapter = ({ chapter }: { chapter: number }) => {
   const chapters: { [key: number]: React.ComponentType } = {
     1: Chapter1,
