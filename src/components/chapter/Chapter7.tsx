@@ -42,9 +42,9 @@ const Chapter = () => {
       <p>
         You are brought to the Conclave, the seat of power in Cistercia, where
         the Lord Marshall is waiting for you. You are told the requisition of
-        mendicants will be made available you, but your assistance in a delicate
-        matter is required first. A Venerator, one of the most revered and
-        sacred members of the military wing of the Ecclesiarch, has gone
+        mendicants will be made available to you, but your assistance in a
+        delicate matter is required first. A Venerator, one of the most revered
+        and sacred members of the military wing of the Ecclesiarch, has gone
         missing. These elite warriors are pillars of the Justinian faith. Never
         once has a Venerator failed in their duty, so for one to inexplicably
         disappear is cause for great concern. The Lord Marshall needs you to

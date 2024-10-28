@@ -86,7 +86,7 @@ const Chapter = () => {
         Some days later, while recovering from your injuries, you receive a
         letter containing a reward. It seems the crown has decided to use your
         story as a heroic tale to turn the focus away from Bastone's doom. And
-        in light of your 'heroism', have been granted ownership of a tavern. you
+        in light of your 'heroism', you have been granted ownership of a tavern.
       </p>
       <p>
         You have barely taken your first step into the newly acquired
