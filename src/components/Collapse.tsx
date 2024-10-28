@@ -18,7 +18,7 @@ const Collapse = ({
   return (
     <div
       className="collapse collapse-plus bg-base-200 mb-2 "
-      onClick={() => audioIndex !== undefined && setCurrentAudio(audioIndex)}
+      onClick={() => audioIndex && setCurrentAudio(audioIndex)}
     >
       <input type="radio" name="my-accordion-3" defaultChecked={checked} />
       <div className="collapse-title text-xl font-medium">{index}</div>
