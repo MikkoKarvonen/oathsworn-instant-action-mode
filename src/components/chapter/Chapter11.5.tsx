@@ -8,7 +8,7 @@ import audio5 from "../../assets/audio/chapter11.5/5.mp3";
 import audio6 from "../../assets/audio/chapter11.5/6.mp3";
 import audio7 from "../../assets/audio/chapter11.5/7.mp3";
 
-import map from "../../assets/images/1.png";
+// import map from "../../assets/images/1.png";
 import Collapse from "../Collapse";
 import Player from "../Player";
 const sounds = [audio1, audio2, audio3, audio4, audio5, audio6, audio7];
@@ -121,9 +121,7 @@ const Chapter = () => {
         begin to fire.
       </p>
     </>,
-    <>
-      <img src={map} />
-    </>,
+    <>{/* <img src={map} /> */}</>,
     <>
       <h3 className="text-1xl font-bold">Epilogue</h3>
 

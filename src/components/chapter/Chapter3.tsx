@@ -11,7 +11,7 @@ import audio8 from "../../assets/audio/chapter3/8.mp3";
 import audio9 from "../../assets/audio/chapter3/9.mp3";
 import audio10 from "../../assets/audio/chapter3/10.mp3";
 
-import map from "../../assets/images/1.png";
+import map from "../../assets/images/3.png";
 import Collapse from "../Collapse";
 import Player from "../Player";
 const sounds = [

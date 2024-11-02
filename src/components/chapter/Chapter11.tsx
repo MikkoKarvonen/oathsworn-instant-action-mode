@@ -9,7 +9,7 @@ import audio6 from "../../assets/audio/chapter11/6.mp3";
 import audio7 from "../../assets/audio/chapter11/7.mp3";
 import audio8 from "../../assets/audio/chapter11/8.mp3";
 
-import map from "../../assets/images/1.png";
+// import map from "../../assets/images/1.png";
 import Collapse from "../Collapse";
 import Player from "../Player";
 const sounds = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8];
@@ -201,7 +201,7 @@ const Chapter = () => {
         YOU ARE AMBUSHED. MARK THE AMBUSHED BOX FOR CHAPTER 11 ON YOUR FREE
         COMPANY SHEET.
       </p>
-      <img src={map} />
+      {/* <img src={map} /> */}
     </>,
     <>
       <h3 className="text-1xl font-bold">Epilogue</h3>
