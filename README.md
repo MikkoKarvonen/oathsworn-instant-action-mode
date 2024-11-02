@@ -4,6 +4,8 @@ Play the Oathsworn board game in instant action mode with spoken story.
 
 ## The App
 
+[http://y.at/🗡️🛡️🏹🎲](http://y.at/🗡️🛡️🏹🎲)
+
 [https://oathsworn-instant-action-mode.vercel.app](https://oathsworn-instant-action-mode.vercel.app)
 
 ## Development

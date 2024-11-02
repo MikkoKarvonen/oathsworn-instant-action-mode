@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Chapter from "./components/Chapter";
 
 function App() {
@@ -7,6 +7,10 @@ function App() {
   const chapters = Array.from({ length: 21 }, (_, i) => i + 1) || [];
 
   chapters.splice(11, 0, 11.5);
+
+  useEffect(() => {
+    document.title = "Oathsworn Instant Action Mode";
+  }, []);
 
   return (
     <div className="max-h-screen overflow-scroll mh-2">
