@@ -12,7 +12,7 @@ import audio9 from "../../assets/audio/chapter2/9.mp3";
 import audio10 from "../../assets/audio/chapter2/10.mp3";
 import audio11 from "../../assets/audio/chapter2/11.mp3";
 
-import map from "../../assets/images/1.png";
+import map from "../../assets/images/2.png";
 import Collapse from "../Collapse";
 import Player from "../Player";
 const sounds = [

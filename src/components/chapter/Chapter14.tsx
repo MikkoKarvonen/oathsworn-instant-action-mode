@@ -13,7 +13,7 @@ import audio10 from "../../assets/audio/chapter14/10.mp3";
 import audio11 from "../../assets/audio/chapter14/11.mp3";
 import audio12 from "../../assets/audio/chapter14/12.mp3";
 
-import map from "../../assets/images/1.png";
+// import map from "../../assets/images/1.png";
 import Collapse from "../Collapse";
 import Player from "../Player";
 const sounds = [
@@ -214,7 +214,7 @@ const Chapter = () => {
     <>
       <p>IF YOU HAVE THE MYSTERY CHEST, OPEN MYSTERY BOX 14.</p>
       <p>IF YOU DO NOT HAVE THE MYSTERY CHEST, OPEN MYSTERY ENVELOPE 14.</p>
-      <img src={map} />
+      {/* <img src={map} /> */}
     </>,
     <>
       <h3 className="text-1xl font-bold">Epilogue</h3>
