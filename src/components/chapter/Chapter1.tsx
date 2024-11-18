@@ -1,31 +1,17 @@
 import { useState } from "react";
 import "../Audio.scss";
-
-import audio1 from "../../assets/audio/chapter1/1.mp3";
-import audio2 from "../../assets/audio/chapter1/2.mp3";
-import audio3 from "../../assets/audio/chapter1/3.mp3";
-import audio4 from "../../assets/audio/chapter1/4.mp3";
-import audio5 from "../../assets/audio/chapter1/5.mp3";
-import audio6 from "../../assets/audio/chapter1/6.mp3";
-import audio7 from "../../assets/audio/chapter1/7.mp3";
-import audio8 from "../../assets/audio/chapter1/8.mp3";
-import audio9 from "../../assets/audio/chapter1/9.mp3";
-
 import map from "../../assets/images/1.png";
 import Collapse from "../Collapse";
 import Player from "../Player";
 
-const sounds = [
-  audio1,
-  audio2,
-  audio3,
-  audio4,
-  audio5,
-  audio6,
-  audio7,
-  audio8,
-  audio9,
-];
+const audioContext = import.meta.glob("../../assets/audio/chapter1/*.mp3");
+
+const audioFiles: string[] = await Promise.all(
+  Object.values(audioContext).map(async (importFunction) => {
+    const module = (await importFunction()) as { default: string };
+    return module.default;
+  })
+);
 
 const Chapter = () => {
   const [currentAudio, setCurrentAudio] = useState(0);
@@ -217,7 +203,7 @@ const Chapter = () => {
           {section}
         </Collapse>
       ))}
-      <Player sound={sounds[currentAudio]} />
+      <Player sound={audioFiles[currentAudio]} />
     </div>
   );
 };
