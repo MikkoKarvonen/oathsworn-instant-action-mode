@@ -14,16 +14,9 @@ import Player from "../Player";
 const sounds = [audio1, audio2, audio3, audio4, audio5, audio6, audio7];
 
 const Chapter = () => {
-  const [currentAudio, setCurrentAudio] = useState(1);
+  const [currentAudio, setCurrentAudio] = useState(0);
 
   const sections = [
-    <>
-      <p>
-        THIS IS A BONUS CHAPTER, IT IS OPTIONAL AND YOU WILL NOT GAIN A LEVEL
-        FOR IT, HOWEVER, FOR COMPLETING THE ENCOUNTER YOU WILL GAIN A FREE
-        COMPANY TRAIT.
-      </p>
-    </>,
     <>
       <p>
         After your discovery of the Heart of Darkness, you are on your way back
@@ -155,7 +148,7 @@ const Chapter = () => {
           key={index}
           index={index + 1}
           checked={index === 0}
-          audioIndex={index % 2 === 1 ? Math.floor(index / 2) : undefined}
+          audioIndex={index % 2 === 0 ? index / 2 : undefined}
           setCurrentAudio={setCurrentAudio}
         >
           {section}
